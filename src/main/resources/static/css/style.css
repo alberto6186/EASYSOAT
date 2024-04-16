@@ -1,0 +1,14 @@
+*{
+background: #2421b8;
+}
+body{
+    font-family: sans-serif;
+}
+.header{
+    background: #2421b8;
+    height: 110px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
