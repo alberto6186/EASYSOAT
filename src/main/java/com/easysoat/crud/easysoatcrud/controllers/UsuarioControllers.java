@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("usuarios")
+@RequestMapping("vistas")
 public class UsuarioControllers {
 
     @Autowired
@@ -21,6 +21,6 @@ public class UsuarioControllers {
     public String mostrarListaUsuarios(Model model){
         List<Usuario> usuarios =(List<Usuario>) usuarioRepository.findAll();
         model.addAttribute("usuarios", usuarios);
-       return "usuarios/lista-usuarios";
+       return "vistas/index";
     }
 }
