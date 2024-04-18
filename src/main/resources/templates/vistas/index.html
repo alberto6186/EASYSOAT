@@ -56,9 +56,14 @@
             <td th:text = "${usuario.numeroDocumento}"></td>
             <td th:text = "${usuario.email}"></td>
             <td>
-                <img th:src="@{'/imagenes' ${producto.nombreImagen}}" alt="..." width="100">
+                <img th:src="@{'/imagenes/' ${producto.nombreImagen}}" alt="..." width="100">
             </td>
             <td th:text = "${usuario.fechaCreacion}"></td>
+            <td style="white-space: nowrap">
+               <a class="btn btn-primary btn-sm" th:href="@{/vistas/editar(id=${usuario.id})}">Editar</a>
+                <a class="btn btn-danger btn-sm" th:href="@{/vistas/eliminar(id=${usuario.id})}" onclick="return confirn('Estas seguro de eliminar?')">Eliminar</a>
+
+            </td>
         </tr>
         </tbody>
 
