@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Easy Soat</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a href="#" class="logo nav-link">
+      <img src="../img/LOGO BLANCO.png" alt="logo">
+    </a>
+
+    <ul class="nav-menu" id="nav-menu">
+      <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Consulta tu soat</a></li>
+      <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link convenios" id="convenios">Convenios</a></li>
+      <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Login</a></li>
+      <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Registrate</a></li>
+
+    </ul>
+    <div class="nav-toggle" aria-label="Abrir menu" id="open">
+      <span>&#9776;</span>
+    </div>
+  </nav>
+</header>
+<section class="section">
+  <h1>Bienvenido a nuestra pagina</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col md-8 mx-auto rounded border p-4 m-4">
+        <h2 class="text-center mb-5">Editar Usuario</h2>
+        <form method="POST" enctype="multipart/form-data"  th:object="${usuarioDto}">
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label"></label>
+            <div class="col-sm-8">
+              <input readonly type="hidden" class="form-control-plaintext" th:value="${usuario.id}">
+              </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label">Nombre</label>
+            <div class="col-sm-8">
+              <input class="form-control" th:field="${usuarioDto.nombres}">
+              <p th:if="${#fields.hasErrors('nombres')}" th:errorClass="text-danger" th:errors="${usuarioDto.nombres}"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label">Apellidos</label>
+            <div class="col-sm-8">
+              <input class="form-control" th:field="${usuarioDto.apellidos}">
+              <p th:if="${#fields.hasErrors('apellidos')}" th:errorClass="text-danger" th:errors="${usuarioDto.apellidos}"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label">Tipo de documento</label>
+            <div class="col-sm-8">
+              <select class="form-select" th:field="${usuarioDto.tipoDocumento}">
+                <option value="Cedula">Cedula de Identificacion</option>
+                <option value="Tarjeta">Tarjeta de Identidad</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Ced Extranjeria">Cedula de Extranjeria</option>
+              </select>
+              <p th:if="${#fields.hasErrors('tipoDocumento')}" th:errorClass="text-danger" th:errors="${usuarioDto.tipoDocumento}"></p>
+
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label">Numero de documento</label>
+            <div class="col-sm-8">
+              <input class="form-control" th:field="${usuarioDto.numeroDocumento}">
+              <p th:if="${#fields.hasErrors('numeroDocumento')}" th:errorClass="text-danger" th:errors="${usuarioDto.numeroDocumento}"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+              <input class="form-control" th:field="${usuarioDto.email}">
+              <p th:if="${#fields.hasErrors('email')}" th:errorClass="text-danger" th:errors="${usuarioDto.email}"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label">Password</label>
+            <div class="col-sm-8">
+              <input class="form-control" type="password" th:field="${usuarioDto.password}">
+              <p th:if="${#fields.hasErrors('password')}" th:errorClass="text-danger" th:errors="${usuarioDto.password}"></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="offset-sm-4 col-sm-8">
+              <img  th:src="@{'/imagenes' + ${usuario.nombreImagen}}" alt="..." width="100">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label">nombreImagen</label>
+            <div class="col-sm-8">
+              <input class="form-control" type="file" th:field="${usuarioDto.nombreImagen}">
+              <p th:if="${#fields.hasErrors('nombreImagen')}" th:errorClass="text-danger" th:errors="${usuarioDto.nombreImagen}"></p>
+            </div>
+          </div>
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Creado en: </label>
+          <div class="col-sm-8">
+            <input readonly class="form-control-plaintext" th:value="${usuario.fechaCreacion}">
+          </div>
+        </div>
+      <div class="row">
+        <div class="offset-sm-4 col-sm-4 d-grid">
+          <button type="submit" class="btn btn-primary" onclick="return confirm('Usuario editado correctamente'">Editar</button>
+        </div>
+        <div class="col-sm-4 d-grid">
+          <a class="btn btn-danger" href="/vistas" role="button">Cancelar</a>
+        </div>
+      </div>
+
+      </form>
+    </div>
+
+  </div>
+
+  </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<footer class="footer">
+  <div class="marca-logo">
+    <h1>{R} RadSoft</h1>
+  </div>
+  <p>Desarrollamos tu software a tu medida</p>
+</footer>
+
+
+</body>

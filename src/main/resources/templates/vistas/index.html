@@ -20,7 +20,7 @@
             <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Consulta tu soat</a></li>
             <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link convenios" id="convenios">Convenios</a></li>
             <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Login</a></li>
-            <li class="nav-menu-item"><a href="/registrarse.html" class="nav-menu-link nav-link">Registrate</a></li>
+            <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Registrate</a></li>
 
         </ul>
         <div class="nav-toggle" aria-label="Abrir menu" id="open">
@@ -28,10 +28,10 @@
         </div>
     </nav>
 </header>
-<section class="section">
-    <h1>Adquiere tu Soat y aprovecha todos los beneficios que tenemos para ti</h1>
+<section class="section container">
+    <h1>Lista de registros de usuarios</h1>
     <div class="">
-        <a href="/vistas/crear" class="boton">Crear Usuario </a>
+        <a href="/vistas/crear" class="btn btn-primary">Crear Usuario </a>
     </div>
     <table class="table">
         <thead>
@@ -56,12 +56,12 @@
             <td th:text = "${usuario.numeroDocumento}"></td>
             <td th:text = "${usuario.email}"></td>
             <td>
-                <img th:src="@{'/imagenes/' ${producto.nombreImagen}}" alt="..." width="100">
+                <img th:src="@{'public/imagenes/' ${producto.nombreImagen}}" alt="..." width="100">
             </td>
             <td th:text = "${usuario.fechaCreacion}"></td>
             <td style="white-space: nowrap">
                <a class="btn btn-primary btn-sm" th:href="@{/vistas/editar(id=${usuario.id})}">Editar</a>
-                <a class="btn btn-danger btn-sm" th:href="@{/vistas/eliminar(id=${usuario.id})}" onclick="return confirn('Estas seguro de eliminar?')">Eliminar</a>
+                <a class="btn btn-danger btn-sm" th:href="@{/vistas/eliminar(id=${usuario.id})}" onclick="return confirm('Estas seguro de eliminar?')">Eliminar</a>
 
             </td>
         </tr>

@@ -42,9 +42,9 @@ body{
     list-style: none;
 }
 .nav-menu-item{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
-    margin: 0 10px;
+    margin: 0 15px;
     line-height: 140px;
     text-transform: uppercase;
     width: max-content;
