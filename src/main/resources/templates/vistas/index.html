@@ -56,7 +56,8 @@
             <td th:text = "${usuario.numeroDocumento}"></td>
             <td th:text = "${usuario.email}"></td>
             <td>
-                <img th:src="@{'public/imagenes/' ${producto.nombreImagen}}" alt="..." width="100">
+                <img th:src="@{'/imagenes/' +
+					${usuario.nombreImagen}}" alt="..." width="100">
             </td>
             <td th:text = "${usuario.fechaCreacion}"></td>
             <td style="white-space: nowrap">
